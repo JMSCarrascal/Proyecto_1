@@ -63,7 +63,7 @@ class SalesDataSampleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sales_data  $sales_data
+     * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
     public function edit(SalesDataSample $sales_data)
@@ -75,7 +75,7 @@ class SalesDataSampleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sales_data  $sales_data
+     * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, SalesDataSample $sales_data)
@@ -86,7 +86,7 @@ class SalesDataSampleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sales_data  $sales_data
+     * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
     public function destroy(SalesDataSample $sales_data)
