@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/indexstyle.css') }}" />
     <style>
      *{box-sizing: border-box;}
        .container-fluid{ margin-top: 1cm;margin-left: 1cm;}
@@ -22,23 +21,23 @@
         <h4>CLIENT MANAGEMENT</h4>
         <div class="row" >
             
-                <form action="{{route('sale.index')}}" method="get">
-                    <div class="row" > 
-                        <div class="col-4 my-2 "> 
-                            <input type="text" name="texto" class="form-control" placeholder="ORDER NUMBER,QUANTITY ORDERED,YEAR_ID" value="{{$texto}}" >
-                        </div>
-                        <div class="col-4">
-                           <input type="submit" value="Search" class="btn btn-primary my-2">
-                        </div>
+            <form action="{{route('sales.index')}}" method="get">
+                <div class="row" > 
+                    <div class="col-4 my-2 "> 
+                        <input type="text" name="texto" class="form-control" placeholder="ORDER NUMBER,QUANTITY ORDERED,YEAR_ID" value="{{$texto}}" >
+                    </div>
+                     <div class="col-4">
+                         <input type="submit" value="Search" class="btn btn-primary my-2">
+                    </div>
 
-                    </div> 
-                  </form>
-              </div>
+                </div> 
+            </form>
+        </div>
               {{-- TABLA --}}
-              <div class="col-1x-12" style="margin-right: 3px">
-                  <div class="table-responsive-lg">
-                    <table class="table table-striped" >
-                        <thead class="encabezado_tabla">
+        <div class="col-1x-12" style="margin-right: 3px">
+            <div class="table-responsive-lg">
+                <table class="table table-striped" >
+                    <thead class="encabezado_tabla">
                         <tr>
                             <th>ORDER NUMBER</th>
                             <th>QUANTITY ORDERED</th>
@@ -66,19 +65,19 @@
                             <th>CONTACT FIRSTNAME</th>
                             <th>DEAL SIZE</th>
                         </tr>
-                        </thead>
+                    </thead>
 
 
                          
                              
-                         <tbody>
-                        @if(count($Sales)<=0)
+                    <tbody>
+                        @if(count($sales)<=0)
                              <tr>
                                 <td colspan="25"> Resoults not found</td>
                              </tr>
-                         @else 
+                        @else 
                  
-                     @foreach ($Sales as $sale )
+                        @foreach ($sales as $sale )
                         <tr>
                             <td>{{$sale->ORDERNUMBER}}</td>
                             <td>{{$sale->QUANTITYORDERED}}</td>
@@ -110,12 +109,12 @@
                         @endforeach
                         @endif
                     </tbody>
-                    </table>
-                    {{$Sales->links()}}
+                </table>
+                    {{$sales->links()}}
 
-                </div>
+            </div>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

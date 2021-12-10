@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SalesDataController;
+use App\Http\Controllers\SalesDataSampleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +14,7 @@ use App\Http\Controllers\SalesDataController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('/sale',SalesDataController::class);
-// Route::get('/sale',[SalesDataController::class,'index']);
+Route::resource('/sales',SalesDataSampleController::class);
+// Route::get('/sales',[alesDataSampleController::class,'index'])->name('sales');
 // Route::get('sale/create',[SalesDataController::class,'create']);
 // Route::get('sale/edit', [SalesDataController::class,'edit']);
