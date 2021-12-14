@@ -74,13 +74,13 @@
                         </tr>
                     </thead>         
                     <tbody>
-                        @if(count($query)<=0)
+                        @if(count($sales)<=0)
                              <tr>
                                 <td colspan="25"> Resoults not found</td>
                              </tr>
                         @else 
                  
-                        @foreach ($query as $sale )
+                        @foreach ($sales as $sale )
                         <tr>
                             <td>{{$sale->ORDERNUMBER}}</td>
                             <td>{{$sale->QUANTITYORDERED}}</td>
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-    {{$query->links()}}
+    {{$sales->links()}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

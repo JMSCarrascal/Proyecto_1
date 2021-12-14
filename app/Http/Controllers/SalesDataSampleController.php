@@ -39,9 +39,9 @@ class SalesDataSampleController extends Controller
     $query=$query->where('YEAR_ID',$year_id);
     }
      
-    $query=$query->paginate(10);
+    $sales=$query->paginate(10);
     
-    return view('sales.index',compact('query','order_number','quantiy_ordered','year_id')); 
+    return view('sales.index',compact('sales','order_number','quantiy_ordered','year_id')); 
     }
 
     /**
