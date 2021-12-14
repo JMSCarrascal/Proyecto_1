@@ -23,10 +23,17 @@
             
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row" > 
-                    <div class="col-4 my-2 "> 
-                        <input type="text" name="texto" class="form-control" placeholder="ORDER NUMBER,QUANTITY ORDERED,YEAR_ID" value="{{$texto}}" >
+                    <div class="col-2 my-2 "> 
+                        <input type="text" name="order_number" class="form-control" placeholder="ORDER NUMBER" value="{{$order_number}}"  >
+                
                     </div>
-                     <div class="col-4">
+                    <div class="col-2 my-2 "> 
+                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED" value="{{$quantiy_ordered}}"  >
+                    </div>
+                    <div class="col-2 my-2 "> 
+                        <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID" value="{{$year_id}}" min="2003" max="2005">
+                    </div>
+                    <div class="col-4">
                          <input type="submit" value="Search" class="btn btn-primary my-2">
                     </div>
 
@@ -67,13 +74,13 @@
                         </tr>
                     </thead>         
                     <tbody>
-                        @if(count($sales)<=0)
+                        @if(count($query)<=0)
                              <tr>
                                 <td colspan="25"> Resoults not found</td>
                              </tr>
                         @else 
                  
-                        @foreach ($sales as $sale )
+                        @foreach ($query as $sale )
                         <tr>
                             <td>{{$sale->ORDERNUMBER}}</td>
                             <td>{{$sale->QUANTITYORDERED}}</td>
@@ -106,9 +113,11 @@
                         @endif
                     </tbody>
                 </table>
-                    {{$sales->links()}}
+                    
             </div>
         </div>
     </div>
+    {{$query->links()}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -13,20 +13,35 @@ class SalesDataSampleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return  Illuminate\Http\Response;
+     * @return Iluminate\http\Response;
      */
     public function index(Request $request)
     {
-        $texto=$request->get('texto');
-        $sales=DB::table('sales_data_sample')
-        ->select('ORDERNUMBER','QUANTITYORDERED','PRICEEACH','ORDERLINENUMBER','SALES','ORDERDATE','STATUS','QTR_ID','MONTH_ID','YEAR_ID','PRODUCTLINE','MSRP','PRODUCTCODE','CUSTOMERNAME','PHONE','ADDRESSLINE1','ADDRESSLINE2','CITY','STATE','POSTALCODE','COUNTRY','TERRITORY','CONTACTLASTNAME','CONTACTFIRSTNAME','DEALSIZE')
-        ->where('ORDERNUMBER', 'LIKE','%'.$texto.'%')
-        ->orwhere('QUANTITYORDERED', 'LIKE','%'.$texto.'%')
-        ->orwhere('YEAR_ID', 'LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('sales.index',compact('sales','texto'));
-        //return $Sales;
+        
+    $query = SalesDataSample::whereRaw('1=1');
 
+    $order_number=$request->get('order_number');
+    if($request->has('order_number' ) && $order_number !=null)
+    {
+    $query=$query->where('ORDERNUMBER',$order_number);
+    }
+
+
+    $quantiy_ordered=$request->get('quantiy_ordered');
+    if($request->has('quantiy_ordered' ) && $quantiy_ordered !=null)
+    {
+    $query=$query->where('QUANTITYORDERED',$quantiy_ordered);
+    }
+
+    $year_id=$request->get('year_id');
+    if($request->has('year_id' ) && $year_id !=null)
+    {
+    $query=$query->where('YEAR_ID',$year_id);
+    }
+     
+    $query=$query->paginate(10);
+    
+    return view('sales.index',compact('query','order_number','quantiy_ordered','year_id')); 
     }
 
     /**
