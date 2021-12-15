@@ -24,11 +24,11 @@
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row" > 
                     <div class="col-2 my-2 "> 
-                        <input type="text" name="order_number" class="form-control" placeholder="ORDER NUMBER" value="{{$order_number}}"  >
+                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER" value="{{$order_number}}"  >
                 
                     </div>
                     <div class="col-2 my-2 "> 
-                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED" value="{{$quantiy_ordered}}"  >
+                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED" value="{{$quantiy_ordered}}" min="0" >
                     </div>
                     <div class="col-2 my-2 "> 
                         <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID" value="{{$year_id}}" min="2003" max="2005">

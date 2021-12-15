@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
 
+// use \Maatwebsite\Excel\Excel;
+use App\Imports\Salesimport;
 use Illuminate\Http\Request;
 use App\Models\SalesDataSample;
 use Illuminate\Support\Facades\DB;
@@ -42,13 +45,22 @@ class SalesDataSampleController extends Controller
     $sales=$query->paginate(10);
     
     return view('sales.index',compact('sales','order_number','quantiy_ordered','year_id')); 
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function import()
+    {
+        //
+        Excel::import(new SalesImport,'sales_data_sample.csv',null,\Maatwebsite\Excel\Excel::CSV);
+
+        
+        return redirect('/sales');
+    }
     public function create()
     {
         //
