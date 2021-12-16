@@ -8,7 +8,6 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\Salesimport;
 use Illuminate\Http\Request;
 use App\Models\SalesDataSample;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
 
 class SalesDataSampleController extends Controller
@@ -59,7 +58,7 @@ class SalesDataSampleController extends Controller
         Excel::import(new SalesImport,'sales_data_sample.csv',null,\Maatwebsite\Excel\Excel::CSV);
 
         
-        return redirect('/sales');
+        // return ('/sales');
     }
     public function create()
     {

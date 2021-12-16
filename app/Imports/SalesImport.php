@@ -41,10 +41,6 @@ class SalesImport implements ToModel
            'CONTACTLASTNAME' => $row[22],
            'CONTACTFIRSTNAME'=> $row[23],
            'DEALSIZE'        => $row[24],
-        //    'updated_at'      => $row[25],
-        //    'created_at'      => $row[26],
-
-    
         ]);
     }
 }

@@ -33,7 +33,7 @@ class SalesDataSample extends Migration
             $table->string('ADDRESSLINE2')->nullable();
             $table->string('CITY');
             $table->string('STATE')->nullable();
-            $table->string('POSTALCODE');
+            $table->string('POSTALCODE')->nullable();;
             $table->string('COUNTRY');
             $table->string('TERRITORY');
             $table->string('CONTACTLASTNAME');

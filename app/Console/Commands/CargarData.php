@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Console\Commands;
-
+use App\Imports\SalesImport;
 use Illuminate\Console\Command;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class CargarData extends Command
 {
@@ -11,14 +13,14 @@ class CargarData extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'load:data';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'cargar data .csv';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,10 @@ class CargarData extends Command
      */
     public function handle()
     {
-        return 0;
+
+        Excel::import(new SalesImport,'sales_data_sample.csv',null,\Maatwebsite\Excel\Excel::CSV);
+
+    
+        
     }
 }
