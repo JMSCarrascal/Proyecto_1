@@ -136,34 +136,41 @@ class SalesDataSampleController extends Controller
      */
     public function update(request $request, $id)
     {
-        $sale=SalesDataSample::find ($id);
+        
+        
+        
+        
+        
+     
+        
+        // $sale=SalesDataSample::find ($id);
 
-        $sale->ORDERNUMBER=$request->input('ORDERNUMBER');
-        $sale->QUANTITYORDERED=$request->input('QUANTITYORDERED');
-        $sale->PRICEEACH=$request->input('PRICEEACH');
-        $sale->ORDERLINENUMBER=$request->input('ORDERLINENUMBER');
-        $sale->SALES=$request->input('SALES');
-        $sale->ORDERDATE=$request->input('ORDERDATE');
-        $sale->STATUS=$request->input('STATUS');
-        $sale->QTR_ID=$request->input('QTR_ID');
-        $sale->MONTH_ID=$request->input('MONTH_ID');
-        $sale->YEAR_ID=$request->input('YEAR_ID');
-        $sale->PRODUCTLINE=$request->input('PRODUCTLINE');
-        $sale->MSRP=$request->input('MSRP');
-        $sale->PRODUCTCODE=$request->input('PRODUCTCODE');
-        $sale->CUSTOMERNAME=$request->input('CUSTOMERNAME');
-        $sale->PHONE=$request->input('PHONE');
-        $sale->ADDRESSLINE1=$request->input('ADDRESSLINE1');
-        $sale->ADDRESSLINE2=$request->input('ADDRESSLINE2');
-        $sale->CITY=$request->input('CITY');
-        $sale->STATE=$request->input(' STATE');
-        $sale->POSTALCODE=$request->input('POSTALCODE');
-        $sale->COUNTRY=$request->input('COUNTRY');
-        $sale->TERRITORY=$request->input('TERRITORY');
-        $sale->CONTACTLASTNAME=$request->input('CONTACTLASTNAME');
-        $sale->CONTACTFIRSTNAME=$request->input('CONTACTFIRSTNAME');
-        $sale->DEALSIZE=$request->input('DEALSIZE');
-        $sale->save();
+        // $sale->ORDERNUMBER=$request->input('ORDERNUMBER');
+        // $sale->QUANTITYORDERED=$request->input('QUANTITYORDERED');
+        // $sale->PRICEEACH=$request->input('PRICEEACH');
+        // $sale->ORDERLINENUMBER=$request->input('ORDERLINENUMBER');
+        // $sale->SALES=$request->input('SALES');
+        // $sale->ORDERDATE=$request->input('ORDERDATE');
+        // $sale->STATUS=$request->input('STATUS');
+        // $sale->QTR_ID=$request->input('QTR_ID');
+        // $sale->MONTH_ID=$request->input('MONTH_ID');
+        // $sale->YEAR_ID=$request->input('YEAR_ID');
+        // $sale->PRODUCTLINE=$request->input('PRODUCTLINE');
+        // $sale->MSRP=$request->input('MSRP');
+        // $sale->PRODUCTCODE=$request->input('PRODUCTCODE');
+        // $sale->CUSTOMERNAME=$request->input('CUSTOMERNAME');
+        // $sale->PHONE=$request->input('PHONE');
+        // $sale->ADDRESSLINE1=$request->input('ADDRESSLINE1');
+        // $sale->ADDRESSLINE2=$request->input('ADDRESSLINE2');
+        // $sale->CITY=$request->input('CITY');
+        // $sale->STATE=$request->input(' STATE');
+        // $sale->POSTALCODE=$request->input('POSTALCODE');
+        // $sale->COUNTRY=$request->input('COUNTRY');
+        // $sale->TERRITORY=$request->input('TERRITORY');
+        // $sale->CONTACTLASTNAME=$request->input('CONTACTLASTNAME');
+        // $sale->CONTACTFIRSTNAME=$request->input('CONTACTFIRSTNAME');
+        // $sale->DEALSIZE=$request->input('DEALSIZE');
+        // $sale->save();
          
         // return redirect()->route('sales.index'),compact('sale');
      
