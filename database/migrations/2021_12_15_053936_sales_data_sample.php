@@ -14,6 +14,7 @@ class SalesDataSample extends Migration
     public function up()
     {
         Schema::create('sales_data_sample', function (Blueprint $table) {
+            $table->id();
             $table->string('ORDERNUMBER');
             $table->string('QUANTITYORDERED');
             $table->string('PRICEEACH');

@@ -13,11 +13,12 @@
 <body>
    
     <div class="container"  >
-        <h4>EDIT CLINET</h4>
+        <h4>EDIT CLIENT</h4>
         <div class="row" >
             <div class="col-xl-12">
-              <form action="{{route('sales.update', $sale->ORDERNUMBER)}}" method="get">
+              <form action="{{route('sales.update',$sale->id)}}" method="get">
                @csrf
+               @method('PUT')
                 <div class="row"> 
                   <div class="col-sm-6">
                       <div class="form-group my-2"> 
@@ -30,11 +31,11 @@
                    
                     
                         <label for="PRICEEACH">Price each</label>
-                        <input type="number" id="PRICEEACH" class="form-control" name="PRICEEACH" min="0" required ="" value="{{$sale->QUANTITYORDERED}}"  > 
+                        <input type="number" id="PRICEEACH" class="form-control" name="PRICEEACH" min="0" required ="" value="{{$sale->PRICEEACH}}"  > 
                       
                    
                         <label for="ORDERLINENUMBER">Order line number</label>  
-                        <input type="number" id="ORDERLINENUMBER" class="form-control" name="ORDERLINENUMBER" min="1"required="" value="{{$sale->QUANTITYORDERED}}"> 
+                        <input type="number" id="ORDERLINENUMBER" class="form-control" name="ORDERLINENUMBER" min="1"required="" value="{{$sale->ORDERLINENUMBER}}"> 
                    
                     
                         <label for="SALES">Sales</label>
@@ -112,7 +113,7 @@
               
                    
                     <div class="col-4">
-                         <input type="submit" value="Create User" class="btn btn-primary my-2">
+                         <input type="submit" value="Safe change" class="btn btn-primary my-2">
                     
                         <input type="reset" value="Cancel" class="btn btn-default my-2">
 
@@ -121,7 +122,7 @@
                    </div>
                   </div>
                 </div>     
-                </form> 
+              </form> 
             </div>
             
 
