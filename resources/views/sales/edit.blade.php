@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    
-    <title>REGISTERED</title>
+    <title>EDIT</title>
     <style></style>
 </head>
 
 <body>
    
-    <div class="container"  >
+  <div class="container-lg"  >
         <h4>EDIT CLIENT</h4>
         <div class="row" >
             <div class="col-xl-12">
               <form action="{{route('sales.update',$sale->id)}}" method="get">
                @csrf
-               @method('PUT')
+               {{-- @method('PUT') --}}
                 <div class="row"> 
                   <div class="col-sm-6">
                       <div class="form-group my-2"> 
@@ -42,7 +42,7 @@
                         <input type="number" id="SALES" class="form-control" name="SALES" min="1" required =""  value="{{$sale->SALES}}" > 
                     
                         <label for="ORDERDATE">Order date</label>
-                        <input type="datetime-local" id="ORDERDATE" class="form-control" name="ORDERDATE" required=""  placeholder="ORDER DATE" value="{{$sale->ORDERDATE}}"> 
+                        <input type="text" id="ORDERDATE" class="form-control" name="ORDERDATE" required=""  placeholder="ORDER DATE" value="{{$sale->ORDERDATE}}"> 
                    
                     
                         <label for="STATUS">Shipping status</label> 
@@ -110,25 +110,22 @@
                         <label for="DEALSIZE"> Deal size</label>
                         <input type="text" id="DEALSIZE" class="form-control" name="DEALSIZE" required=""  value="{{$sale->DEALSIZE}}">
                     </div> 
-              
+                  </div> 
+                </div> 
                    
-                    <div class="col-4">
-                         <input type="submit" value="Safe change" class="btn btn-primary my-2">
-                    
-                        <input type="reset" value="Cancel" class="btn btn-default my-2">
+                    <div class="row">
+                        
+                        <input type="submit" value="Safe change" class="col-sm-2  btn btn-primary my-4  ">
 
-                        <a href="{{route('sales.index')}}">volver</a>
+                        <a href="{{route('sales.index')}}" class="col-sm-1 btn btn-link  my-4">back</a>
         
                    </div>
-                  </div>
-                </div>     
+                  
+                    
               </form> 
             </div>
-            
-
-        
-    </div>
+          </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  </div>
 </body>
 </html>

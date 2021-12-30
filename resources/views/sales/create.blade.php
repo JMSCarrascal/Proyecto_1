@@ -14,7 +14,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-lg">
         <h4>CREATED REGISTERED</h4>
         <div class="row">
             <div class="col-xl-12">
@@ -124,18 +124,19 @@
                                 <label for="DEALSIZE"> Deal size</label>
                                 <input type="text" id="DEALSIZE" class="form-control" name="DEALSIZE" required="">
                             </div>
-
-
-                            <div class="col-4">
-                                <input type="submit" value="Create User" class="btn btn-primary my-2">
-
-                                <input type="reset" value="Cancel" class="btn btn-default my-2">
-
-                                <a href="{{route('sales.index')}}">volver</a>
-
-                            </div>
-                        </div>
+                       </div>
                     </div>
+                            <div class="row">
+                        
+                                    <input type="submit" value="Create User" class="col-sm-2  btn btn-primary my-4  ">
+
+                                    <input type="reset" value="Reset" class="col-sm-1  btn btn-secondary my-4" style="margin-left:10px">
+            
+                                    <a href="{{route('sales.index')}}" class="col-sm-1 btn btn-link  my-4">back</a>
+                    
+                            </div>
+                      
+                    
                 </form>
             </div>
 

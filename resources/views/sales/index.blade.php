@@ -12,10 +12,10 @@
             box-sizing: border-box;
         }
 
-        .container-fluid {
+        /* .container{
             margin-top: 1cm;
-            margin-left: 1cm;
-        }
+            margin-left: 4cm;
+        } */
 
         .encabezado_tabla {
             background-color: rgb(199, 195, 195);
@@ -43,7 +43,7 @@
 <body>
 
 
-    <div class="container">
+    <div class="container my-4">
         <h4>CLIENT MANAGEMENT</h4>
         <div class="row">
             <form action="{{route('sales.index')}}" method="get">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-2 my-2 ">
                         <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
-                            value="{{$year_id}}" min="2003" max="2021">
+                            value="{{$year_id}}" min="2000" max="2021">
                     </div>
                     <div class="col-1 my-2">
                         <input type="submit" value="Search" class="btn btn-primary ">
@@ -79,7 +79,7 @@
                         <thead class="encabezado_tabla">
                             <tr>
 
-                                <th>OPTIONS_CLIENT</th>
+                                <th>OPTIONS CLIENT</th>
                                 <th>id</th>
                                 <th>ORDER NUMBER</th>
                                 <th>QUANTITY ORDERED</th>
@@ -118,13 +118,15 @@
                             <tr>
                                 
                                 <td>
-                                    <a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2">Edit</a>
+                                    <div>
+                                     <a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2" method="get">Edit</a>
                                             
-                                 <form action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                     <a action="{{route('sales.destroy',$sale->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="submit" class='btn btn-danger btn-sm' value="Delete">
-                                       </form>
+                                            <input type="submit" class='btn btn-danger btn-sm' value="Delete" onclick="return confirm('Are you sure, do you want delete this register?')" style="display:inline">
+                                     </a>
+                                    </div> 
                                 </td>
                                 <td>{{$sale->id}}</td>
                                 <td>{{$sale->ORDERNUMBER}}</td>
