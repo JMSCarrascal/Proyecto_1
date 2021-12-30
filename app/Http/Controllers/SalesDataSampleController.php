@@ -167,7 +167,7 @@ class SalesDataSampleController extends Controller
          
         // return redirect()->route('sales.index'),compact('sale');
      
-        return view('sales.index', compact('sale'));
+        // return view('sales.index', compact('sale'));
     }
 
     /**

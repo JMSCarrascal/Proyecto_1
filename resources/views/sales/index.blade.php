@@ -116,10 +116,11 @@
 
                             @foreach ($sales as $sale )
                             <tr>
-                                Edit</a>
-                                <td><a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2">
+                                
+                                <td>
+                                    <a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2">Edit</a>
                                             
-                                      <form action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                 <form action="{{route('sales.destroy',$sale->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class='btn btn-danger btn-sm' value="Delete">
