@@ -68,9 +68,9 @@ class SalesDataSampleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, SalesDataSample $sales)
     {
-        $sales=new SalesDataSample();
+        // $sales=new SalesDataSample();
 
         $sales->ORDERNUMBER=$request->input('ORDERNUMBER');
         $sales->QUANTITYORDERED=$request->input('QUANTITYORDERED');
@@ -119,9 +119,8 @@ class SalesDataSampleController extends Controller
      * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit( SalesDataSample $sale)
     {
-        $sale=SalesDataSample::find($id);
         
         return view('sales.edit', compact('sale'));
         
@@ -134,47 +133,12 @@ class SalesDataSampleController extends Controller
      * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
-    public function update(request $request, $id)
+    public function update(request $request, SalesDataSample $sale)
     {
         
-        
-        
-        
-        
-     
-        
-        // $sale=SalesDataSample::find ($id);
-
-        // $sale->ORDERNUMBER=$request->input('ORDERNUMBER');
-        // $sale->QUANTITYORDERED=$request->input('QUANTITYORDERED');
-        // $sale->PRICEEACH=$request->input('PRICEEACH');
-        // $sale->ORDERLINENUMBER=$request->input('ORDERLINENUMBER');
-        // $sale->SALES=$request->input('SALES');
-        // $sale->ORDERDATE=$request->input('ORDERDATE');
-        // $sale->STATUS=$request->input('STATUS');
-        // $sale->QTR_ID=$request->input('QTR_ID');
-        // $sale->MONTH_ID=$request->input('MONTH_ID');
-        // $sale->YEAR_ID=$request->input('YEAR_ID');
-        // $sale->PRODUCTLINE=$request->input('PRODUCTLINE');
-        // $sale->MSRP=$request->input('MSRP');
-        // $sale->PRODUCTCODE=$request->input('PRODUCTCODE');
-        // $sale->CUSTOMERNAME=$request->input('CUSTOMERNAME');
-        // $sale->PHONE=$request->input('PHONE');
-        // $sale->ADDRESSLINE1=$request->input('ADDRESSLINE1');
-        // $sale->ADDRESSLINE2=$request->input('ADDRESSLINE2');
-        // $sale->CITY=$request->input('CITY');
-        // $sale->STATE=$request->input(' STATE');
-        // $sale->POSTALCODE=$request->input('POSTALCODE');
-        // $sale->COUNTRY=$request->input('COUNTRY');
-        // $sale->TERRITORY=$request->input('TERRITORY');
-        // $sale->CONTACTLASTNAME=$request->input('CONTACTLASTNAME');
-        // $sale->CONTACTFIRSTNAME=$request->input('CONTACTFIRSTNAME');
-        // $sale->DEALSIZE=$request->input('DEALSIZE');
-        // $sale->save();
-         
-        // return redirect()->route('sales.index'),compact('sale');
-     
-        // return view('sales.index', compact('sale'));
+        $sale->fill($request->all());
+        $sale->save();
+        return redirect()->route('sales.index');
     }
 
     /**
@@ -183,9 +147,8 @@ class SalesDataSampleController extends Controller
      * @param  \App\Models\SalesDataSample  $sales_data
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(SalesDataSample $sale)
     {
-        $sale=SalesDataSample::find($id);
         $sale->delete();
         return redirect()->route('sales.index');
     }

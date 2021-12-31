@@ -121,11 +121,11 @@
                                     <div>
                                      <a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2" method="get">Edit</a>
                                             
-                                     <a action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                     <form action="{{route('sales.destroy',$sale->id)}}" method="post" >
                                             @csrf
                                             @method('DELETE')
-                                            <input type="submit" class='btn btn-danger btn-sm' value="Delete" onclick="return confirm('Are you sure, do you want delete this register?')" style="display:inline">
-                                     </a>
+                                            <input type="submit" class='btn btn-danger btn-sm' value="Delete" onclick="return confirm('Are you sure, do you want delete this register?')" >
+                                     </form>
                                     </div> 
                                 </td>
                                 <td>{{$sale->id}}</td>

@@ -16,9 +16,9 @@
         <h4>EDIT CLIENT</h4>
         <div class="row" >
             <div class="col-xl-12">
-              <form action="{{route('sales.update',$sale->id)}}" method="get">
+              <form action="{{route('sales.update',$sale->id)}}" method="post">
                @csrf
-               {{-- @method('PUT') --}}
+               @method('put')
                 <div class="row"> 
                   <div class="col-sm-6">
                       <div class="form-group my-2"> 
