@@ -31,7 +31,7 @@
                    
                     
                         <label for="PRICEEACH">Price each</label>
-                        <input type="number" id="PRICEEACH" class="form-control" name="PRICEEACH" min="0" required ="" value="{{$sale->PRICEEACH}}"  > 
+                        <input type="text" id="PRICEEACH" class="form-control" name="PRICEEACH" min="0" required ="" value="{{$sale->PRICEEACH}}"  > 
                       
                    
                         <label for="ORDERLINENUMBER">Order line number</label>  
@@ -39,7 +39,7 @@
                    
                     
                         <label for="SALES">Sales</label>
-                        <input type="number" id="SALES" class="form-control" name="SALES" min="1" required =""  value="{{$sale->SALES}}" > 
+                        <input type="text" id="SALES" class="form-control" name="SALES" min="1" required =""  value="{{$sale->SALES}}" > 
                     
                         <label for="ORDERDATE">Order date</label>
                         <input type="text" id="ORDERDATE" class="form-control" name="ORDERDATE" required=""  placeholder="ORDER DATE" value="{{$sale->ORDERDATE}}"> 
@@ -49,7 +49,11 @@
                         <input  tipe="text" id="STATUS"class="form-control" list="estado" name="STATUS" require="" value="{{$sale->STATUS}}">
                         <datalist id="estado">
                             <option>Shipped</option>
-                            <option>shipped</option>
+                            <option>Unshipped</option>
+                            <option>In Process</option>
+                            <option>Disputed</option>
+                            <option>On Hold</option>
+                            <option>Cancelled</option>
                         </datalist>
                     
                        <label for="QTR_ID"> QTR id</label>
@@ -64,6 +68,8 @@
                         <label for="PRODUCTLINE">Product line</label> 
                         <input  tipe="text" id="PRODUCTLINE"class="form-control" list="product_line" name="PRODUCTLINE" require="" value="{{$sale->PRODUCTLINE}}">
                           <datalist id="product_line">
+                            <option>Motorcycle</option>
+                            <option>classic Cars</option>
                             <option>Planes</option>
                             <option>Ships</option>
                           </datalist>
@@ -106,9 +112,16 @@
 
                         <label for="CONTACTFIRSTNAME"> Contac firtsname</label>
                         <input type="text" id="CONTACTFIRSTNAME" class="form-control" name="CONTACTFIRSTNAME" required="" value="{{$sale->CONTACTFIRSTNAME}}" >
-
-                        <label for="DEALSIZE"> Deal size</label>
-                        <input type="text" id="DEALSIZE" class="form-control" name="DEALSIZE" required=""  value="{{$sale->DEALSIZE}}">
+                          
+                        
+                        <label for="DEALSIZE">Deal size</label> 
+                        <input  tipe="text" id="DEALSIZE"class="form-control" list="deal_size" name="DEALSIZE" require="" value="{{$sale->DEALSIZE}}">
+                          <datalist id="deal_size">
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            
+                          </datalist>
                     </div> 
                   </div> 
                 </div> 

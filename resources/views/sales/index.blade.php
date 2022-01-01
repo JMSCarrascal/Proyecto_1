@@ -152,9 +152,9 @@
                                 <td>{{$sale->COUNTRY}}</td>
                                 <td>{{$sale->TERRITORY}}</td>
                                 <td>{{$sale->CONTACTLASTNAME}}</td>
-                                <td>{{$sale->DEALSIZE}}</td>
                                 <td>{{$sale->CONTACTFIRSTNAME}}</td>
-
+                                <td>{{$sale->DEALSIZE}}</td>
+                               
                                 </tr>
                                 @endforeach
                                 @endif

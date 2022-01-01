@@ -15,10 +15,10 @@
 <body>
 
     <div class="container-lg">
-        <h4>CREATED REGISTERED</h4>
+        <h4>NEW REGISTERED</h4>
         <div class="row">
             <div class="col-xl-12">
-                <form action="{{route('sales.store')}}" method="get">
+                <form action="{{route('sales.store')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -34,8 +34,8 @@
 
 
                                 <label for="PRICEEACH">Price each</label>
-                                <input type="number" id="PRICEEACH" class="form-control" name="PRICEEACH" min="0"
-                                    required="">
+                                <input type="text" id="PRICEEACH" class="form-control" name="PRICEEACH" 
+                                    required maxlength="7">
 
 
                                 <label for="ORDERLINENUMBER">Order line number</label>
@@ -44,10 +44,10 @@
 
 
                                 <label for="SALES">Sales</label>
-                                <input type="number" id="SALES" class="form-control" name="SALES" min="1" required="">
+                                <input type="text" id="SALES" name="SALES"  class="form-control" min="1" required="">
 
                                 <label for="ORDERDATE">Order date</label>
-                                <input type="datetime-local" id="ORDERDATE" class="form-control" name="ORDERDATE"
+                                <input type="datetime-local" id="ORDERDATE" name="ORDERDATE" class="form-control" 
                                     required="" placeholder="ORDER DATE">
 
 
@@ -57,6 +57,10 @@
                                 <datalist id="estado">
                                     <option>Shipped</option>
                                     <option>Unshipped</option>
+                                    <option>In Process</option>
+                                    <option>Disputed</option>
+                                    <option>On Hold</option>
+                                    <option>Cancelled</option>
                                 </datalist>
 
                                 <label for="QTR_ID"> QTR id</label>
@@ -64,7 +68,7 @@
 
                                 <label for="MONTH_ID"> Mont id</label>
                                 <input type="number" id="MONTH_ID" class="form-control" name="MONTH_ID" min="1" max="12"
-                                    required="" placeholder="insert a number betwent 1-12.">
+                                    required="" placeholder="insert a value betwent 1-12.">
 
                                 <label for="YEAR_ID"> Year id</label>
                                 <input type="number" id="YEAR_ID" class="form-control" name="YEAR_ID" max="2021"
@@ -74,6 +78,8 @@
                                 <input tipe="text" id="PRODUCTLINE" class="form-control" list="product_line"
                                     name="PRODUCTLINE" require="">
                                 <datalist id="product_line">
+                                    <option>Motorcycle</option>
+                                    <option>classic Cars</option>
                                     <option>Planes</option>
                                     <option>Ships</option>
                                 </datalist>
@@ -121,8 +127,14 @@
                                 <input type="text" id="CONTACTFIRSTNAME" class="form-control" name="CONTACTFIRSTNAME"
                                     required="">
 
-                                <label for="DEALSIZE"> Deal size</label>
-                                <input type="text" id="DEALSIZE" class="form-control" name="DEALSIZE" required="">
+                                <label for="DEALSIZE">Deal size</label> 
+                                 <input  tipe="text" id="DEALSIZE"class="form-control" list="deal_size" name="DEALSIZE" require="">
+                                      <datalist id="deal_size">
+                                        <option>Small</option>
+                                        <option>Medium</option>
+                                        <option>Large</option>
+                                        
+                                      </datalist>
                             </div>
                        </div>
                     </div>
