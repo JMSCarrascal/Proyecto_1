@@ -8,20 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>REGISTERED</title>
-    <style></style>
+    <title>New</title>
 </head>
 
 <body>
 
     <div class="container-lg">
-        <h4>NEW REGISTERED</h4>
+        <h4>NEW REGIST</h4>
         <div class="row">
             <div class="col-xl-12">
                 <form action="{{route('sales.store')}}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group my-2">
                                 <label for="ORDERNUMBER">Order number</label>
                                 <input type="number" id="ORDERNUMBER" class="form-control" name="ORDERNUMBER" min="1"
@@ -136,19 +135,17 @@
                                         
                                       </datalist>
                             </div>
-                       </div>
+                        </div>
                     </div>
-                            <div class="row">
+                    <div class="row">
                         
-                                    <input type="submit" value="Create User" class="col-sm-2  btn btn-primary my-4  ">
+                         <input type="submit" value="Create User" class="col-sm-2  btn btn-primary my-4  ">
 
-                                    <input type="reset" value="Reset" class="col-sm-1  btn btn-secondary my-4" style="margin-left:10px">
+                        <input type="reset" value="Reset" class="col-sm-1  btn btn-secondary my-4" style="margin-left:10px">
             
-                                    <a href="{{route('sales.index')}}" class="col-sm-1 btn btn-link  my-4">back</a>
+                        <a href="{{route('sales.index')}}" class="col-sm-1 btn btn-link  my-4">back</a>
                     
-                            </div>
-                      
-                    
+                    </div>                 
                 </form>
             </div>
 

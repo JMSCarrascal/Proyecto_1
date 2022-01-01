@@ -12,32 +12,22 @@
             box-sizing: border-box;
         }
 
-        /* .container{
-            margin-top: 1cm;
-            margin-left: 4cm;
-        } */
-
+        
         .encabezado_tabla {
             background-color: rgb(199, 195, 195);
         }
 
         .form-control {
-            position: sticky;
             right: 10%;
         }
-
-        .btn-primary {
-            position: sticky;
-        }
-
         .btn-success {
-            width: 100px;
-            position: sticky;
-        }
-        }
+            width: 100px;}
+            
+        
+        
 
     </style>
-    <title>Buscador</title>
+    <title>Homepage</title>
 </head>
 
 <body>
@@ -160,12 +150,12 @@
                                 @endif
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
+        {{$sales->links()}}
     </div>
-    {{$sales->links()}}
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

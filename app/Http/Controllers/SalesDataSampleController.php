@@ -70,8 +70,6 @@ class SalesDataSampleController extends Controller
      */
     public function store(Request $request, SalesDataSample $sales)
     {
-        // $sales=new SalesDataSample();
-
         $sales->ORDERNUMBER=$request->input('ORDERNUMBER');
         $sales->QUANTITYORDERED=$request->input('QUANTITYORDERED');
         $sales->PRICEEACH=$request->input('PRICEEACH');
