@@ -8,64 +8,68 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        * {
-            box-sizing: border-box;
+        .button_regist{
+            background-color: rgb(16, 185, 39);
+            min-width: 180px;
         }
+        @media (max-width: 767px) {
+            .principal_buttons {
+                width: 100%;
+                margin-right: 4px;
+                max-width: 600px;
 
-        
-        .encabezado_tabla {
-            background-color: rgb(199, 195, 195);
-        }
+            }
 
-        .form-control {
-            right: 10%;
+          
         }
-        .btn-success {
-            width: 100px;}
-            
-        
-        
 
     </style>
+
     <title>Homepage</title>
 </head>
 
-<body>
+<body class="bg-secondary">
 
 
-    <div class="container my-4">
-        <h4>CLIENT MANAGEMENT</h4>
-        <div class="row">
+    <div class="container-sm bg-secondary ">
+        <h3>CLIENT MANAGEMENT</h3>
+        <div class="row sticky-top mb-2">
+
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row">
-                    <div class="col-2 my-2 ">
+                    <div class="col-4 col-md-3 mb-3">
                         <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
                             value="{{ $order_number}}">
-
                     </div>
-                    <div class="col-2 my-2 ">
+
+                    <div class="col-4 col-md-3 ">
                         <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
                             value="{{$quantiy_ordered}}" min="0">
                     </div>
-                    <div class="col-2 my-2 ">
+
+                    <div class="col-4 col-md-2 ">
                         <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
-                            value="{{$year_id}}" min="2000" max="2021">
-                    </div>
-                    <div class="col-1 my-2">
-                        <input type="submit" value="Search" class="btn btn-primary ">
-                    </div>
-                    <div class="col-1 my-2">
-                        <a href="{{route('sales.create')}}" class="btn btn-success ">NEW</a>
+                            value="{{$year_id}}" min="2000" max="2022">
                     </div>
 
+                    {{-- butons --}}
+                    <div class="col-12 col-md-1  me-4 ">
+                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
+                    </div>
+                    <div class="col-12 col-md-2 ">
+                        <a href="{{route('sales.create')}}"
+                            class="btn btn-success bg-gradient button_regist principal_buttons  ">New Regist</a>
+                    </div>
                 </div>
+
             </form>
         </div>
         {{-- TABLA --}}
+        <div class="container-md"></div>
         <div class="row">
             <div class="col-1x-12" style="margin-right: 3px">
-                <div class="table-responsive-lg">
-                    <table class="table table-striped">
+                <div class="table-responsive-md">
+                    <table class="table table-dark table-striped">
                         <thead class="encabezado_tabla">
                             <tr>
 
@@ -102,49 +106,52 @@
                             @if(count($sales)<=0) <tr>
                                 <td colspan="25"> Resoults not found</td>
                                 </tr>
-                            @else
+                                @else
 
-                            @foreach ($sales as $sale )
-                            <tr>
-                                
-                                <td>
-                                    <div>
-                                     <a href="{{route('sales.edit',$sale->id)}}" class="btn btn-warning btn-sm my-2" method="get">Edit</a>
-                                            
-                                     <form action="{{route('sales.destroy',$sale->id)}}" method="post" >
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="submit" class='btn btn-danger btn-sm' value="Delete" onclick="return confirm('Are you sure, do you want delete this register?')" >
-                                     </form>
-                                    </div> 
-                                </td>
-                                <td>{{$sale->id}}</td>
-                                <td>{{$sale->ORDERNUMBER}}</td>
-                                <td>{{$sale->QUANTITYORDERED}}</td>
-                                <td>{{$sale->PRICEEACH}}</td>
-                                <td>{{$sale->ORDERLINENUMBER}}</td>
-                                <td>{{$sale->SALES}}</td>
-                                <td>{{$sale->ORDERDATE}}</td>
-                                <td>{{$sale->STATUS}}</td>
-                                <td>{{$sale->QTR_ID}}</td>
-                                <td>{{$sale->MONTH_ID}}</td>
-                                <td>{{$sale->YEAR_ID}}</td>
-                                <td>{{$sale->PRODUCTLINE}}</td>
-                                <td>{{$sale->MSRP}}</td>
-                                <td>{{$sale->PRODUCTCODE}}</td>
-                                <td>{{$sale->CUSTOMERNAME}}</td>
-                                <td>{{$sale->PHONE}}</td>
-                                <td>{{$sale->ADDRESSLINE1}}</td>
-                                <td>{{$sale->ADDRESSLINE2}}</td>
-                                <td>{{$sale->CITY}}</td>
-                                <td>{{$sale->STATE}}</td>
-                                <td>{{$sale->POSTALCODE}}</td>
-                                <td>{{$sale->COUNTRY}}</td>
-                                <td>{{$sale->TERRITORY}}</td>
-                                <td>{{$sale->CONTACTLASTNAME}}</td>
-                                <td>{{$sale->CONTACTFIRSTNAME}}</td>
-                                <td>{{$sale->DEALSIZE}}</td>
-                               
+                                @foreach ($sales as $sale )
+                                <tr>
+
+                                    <td class="sticky-left">
+                                        <div>
+                                            <a href="{{route('sales.edit',$sale->id)}}"
+                                                class="btn btn-warning btn-sm my-2 bg-gradient" method="get">Edit</a>
+
+                                            <form action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class='btn btn-danger btn-sm bg-gradient'
+                                                    value="Delete"
+                                                    onclick="return confirm('Are you sure, do you want delete this register?')">
+                                            </form>
+                                        </div>
+                                    </td>
+                                    <td>{{$sale->id}}</td>
+                                    <td>{{$sale->ORDERNUMBER}}</td>
+                                    <td>{{$sale->QUANTITYORDERED}}</td>
+                                    <td>{{$sale->PRICEEACH}}</td>
+                                    <td>{{$sale->ORDERLINENUMBER}}</td>
+                                    <td>{{$sale->SALES}}</td>
+                                    <td>{{$sale->ORDERDATE}}</td>
+                                    <td>{{$sale->STATUS}}</td>
+                                    <td>{{$sale->QTR_ID}}</td>
+                                    <td>{{$sale->MONTH_ID}}</td>
+                                    <td>{{$sale->YEAR_ID}}</td>
+                                    <td>{{$sale->PRODUCTLINE}}</td>
+                                    <td>{{$sale->MSRP}}</td>
+                                    <td>{{$sale->PRODUCTCODE}}</td>
+                                    <td>{{$sale->CUSTOMERNAME}}</td>
+                                    <td>{{$sale->PHONE}}</td>
+                                    <td>{{$sale->ADDRESSLINE1}}</td>
+                                    <td>{{$sale->ADDRESSLINE2}}</td>
+                                    <td>{{$sale->CITY}}</td>
+                                    <td>{{$sale->STATE}}</td>
+                                    <td>{{$sale->POSTALCODE}}</td>
+                                    <td>{{$sale->COUNTRY}}</td>
+                                    <td>{{$sale->TERRITORY}}</td>
+                                    <td>{{$sale->CONTACTLASTNAME}}</td>
+                                    <td>{{$sale->CONTACTFIRSTNAME}}</td>
+                                    <td>{{$sale->DEALSIZE}}</td>
+
                                 </tr>
                                 @endforeach
                                 @endif
@@ -153,9 +160,11 @@
                 </div>
             </div>
         </div>
-        {{$sales->links()}}
+        <div class="">
+            {{$sales->links()}}
+        </div>
     </div>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
