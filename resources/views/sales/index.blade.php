@@ -5,13 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="">
     <style>
-        .button_regist{
-            background-color: rgb(16, 185, 39);
+        body {
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+        .button_regist {
+            background-color: #00CC33;
             min-width: 180px;
         }
+
+        .Management {
+            position: sticky;
+            top: 0px;
+            right: 5px;
+        }
+
+        .option_buttons {
+            text-align: initial;
+            width: 75%;
+            height: 100%;
+            font-family;
+            font-weight: 500;
+
+
+
+        }
+
+        /* .icon {
+            align: right;
+        } */
+
+        /* responsive */
         @media (max-width: 767px) {
             .principal_buttons {
                 width: 100%;
@@ -20,7 +53,7 @@
 
             }
 
-          
+
         }
 
     </style>
@@ -28,12 +61,12 @@
     <title>Homepage</title>
 </head>
 
-<body class="bg-secondary">
+<body class="bg-secondary ">
 
 
-    <div class="container-sm bg-secondary ">
-        <h3>CLIENT MANAGEMENT</h3>
-        <div class="row sticky-top mb-2">
+    <div class="container-sm mt-5 ">
+        <h4 class="text-white">CLIENT MANAGEMENT</h4>
+        <div class="row mb-2 Management">
 
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row">
@@ -53,53 +86,55 @@
                     </div>
 
                     {{-- butons --}}
-                    <div class="col-12 col-md-1  me-4 ">
+                    <div class="col-12 col-md-1  me-3 mb-2 ">
                         <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
                     </div>
                     <div class="col-12 col-md-2 ">
                         <a href="{{route('sales.create')}}"
-                            class="btn btn-success bg-gradient button_regist principal_buttons  ">New Regist</a>
+                            class="btn btn-success bg-gradient button_regist principal_buttons">
+                       New Regist </a>
+
                     </div>
                 </div>
 
             </form>
         </div>
         {{-- TABLA --}}
-        <div class="container-md"></div>
+
         <div class="row">
-            <div class="col-1x-12" style="margin-right: 3px">
-                <div class="table-responsive-md">
+            <div class="col-1x-12" >
+                <div class="table-responsive-xl">
                     <table class="table table-dark table-striped">
                         <thead class="encabezado_tabla">
                             <tr>
 
-                                <th>OPTIONS CLIENT</th>
+                                <th>OPTIONS&nbsp;CLIENT</th>
                                 <th>id</th>
-                                <th>ORDER NUMBER</th>
-                                <th>QUANTITY ORDERED</th>
-                                <th>PRICE EACH</th>
-                                <th>ORDER LINENUMBER</th>
+                                <th>ORDER&nbsp;NUMBER</th>
+                                <th>QUANTITY&nbsp;ORDERED</th>
+                                <th>PRICE&nbsp;EACH</th>
+                                <th>ORDER&nbsp;LINENUMBER</th>
                                 <th>SALES</th>
-                                <th>ORDER DATE</th>
+                                <th>ORDER&nbsp;DATE</th>
                                 <th>STATUS</th>
-                                <th>QTR_ID</th>
-                                <th>MONTH_ID</th>
-                                <th>YEAR_ID</th>
-                                <th>PRODUCT LINE</th>
+                                <th>QTR&nbsp;ID</th>
+                                <th>MONTH&nbsp;ID</th>
+                                <th>YEAR&nbsp;ID</th>
+                                <th>PRODUCT&nbsp;LINE</th>
                                 <th>MSRP</th>
-                                <th>PRODUCT CODE</th>
-                                <th>CUSTOMER NAME</th>
+                                <th>PRODUCT&nbsp;CODE</th>
+                                <th>CUSTOMER&nbsp;NAME</th>
                                 <th>PHONE</th>
-                                <th>ADDRESS LINE_1</th>
-                                <th>ADDRESS LINE_2</th>
+                                <th>ADDRESS&nbsp;LINE&nbsp;1</th>
+                                <th>ADDRESS&nbsp;LINE&nbsp;2</th>
                                 <th>CITY</th>
                                 <th>STATE</th>
-                                <th>POSTAL CODE</th>
+                                <th>POSTAL&nbsp;CODE</th>
                                 <th>COUNTRY</th>
                                 <th>TERRITORY</th>
-                                <th>CONTACT LASTNAME</th>
-                                <th>CONTACT FIRSTNAME</th>
-                                <th>DEAL SIZE</th>
+                                <th>CONTACT&nbsp;LASTNAME</th>
+                                <th>CONTACT&nbsp;FIRSTNAME</th>
+                                <th>DEAL&nbsp;SIZE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,18 +145,31 @@
 
                                 @foreach ($sales as $sale )
                                 <tr>
-
+                                    {{-- Optión buttons --}}
                                     <td class="sticky-left">
                                         <div>
-                                            <a href="{{route('sales.edit',$sale->id)}}"
-                                                class="btn btn-warning btn-sm my-2 bg-gradient" method="get">Edit</a>
+                                            
+                                                <a href="{{route('sales.edit',$sale->id)}}" method="get"
+                                                    class="btn btn-warning btn-sm mb-1 option_buttons "><span
+                                                        class="pt-1 material-icons-outlined"
+                                                        style="font-size:20px;">edit</span>&nbsp;&nbsp;&nbsp;Edit
 
+
+                                                </a>
+                                        
                                             <form action="{{route('sales.destroy',$sale->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" class='btn btn-danger btn-sm bg-gradient'
-                                                    value="Delete"
-                                                    onclick="return confirm('Are you sure, do you want delete this register?')">
+                                                <div
+                                                    class="btn btn-sm bg-danger  bg-gradient d-flex text-white option_buttons">
+                                                    <label for="delete" class="pt-1 material-icons-outlined"
+                                                        style="font-size: 20px">delete</label>
+                                                    <input type="submit" id="delete" class='btn btn-sm text-white'
+                                                        value="Delete"
+                                                        onclick="return confirm('Are you sure, do you want delete this register?')">
+
+
+                                                </div>
                                             </form>
                                         </div>
                                     </td>
@@ -160,7 +208,7 @@
                 </div>
             </div>
         </div>
-        <div class="">
+        <div class="mt-3">
             {{$sales->links()}}
         </div>
     </div>

@@ -1,26 +1,13 @@
-/* *{box-sizing: border-box;}
-
-
-
-
-
-.container{
-    padding-left: 40px;
-    background-color: blue;
+.button_regist{
+    background-color: rgb(16, 185, 39);
+    min-width: 180px;
 }
+@media (max-width: 767px) {
+    .principal_buttons {
+        width: 100%;
+        margin-right: 4px;
+        max-width: 600px;
 
-* {
-    box-sizing: border-box;
-}
+    }}
 
-
-.encabezado_tabla {
-    background-color: rgb(199, 195, 195);
-}
-
-.form-control {
-    right: 10%;
-}
-.btn-success {
-    width: 100px;} */
     
