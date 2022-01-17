@@ -11,25 +11,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
-    <link rel="stylesheet" href="">
+
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-
         }
 
         .button_regist {
             background-color: #30a74e;
             min-width: 140px;
-
-
         }
 
         .Management {
             position: sticky;
             top: 0px;
-
-
         }
 
         .option_buttons {
@@ -38,10 +34,6 @@
             width: 70%;
             height: 35px;
             font-weight: 500;
-
-
-
-
         }
 
         .icons_proyect {
@@ -49,16 +41,10 @@
             font-size: 18px;
         }
 
-       
-
-        /* responsive */
         @media (max-width: 767px) {
             .principal_buttons {
                 width: 100%;
             }
-
-
-
         }
 
     </style>
@@ -67,63 +53,54 @@
 </head>
 
 <body>
-
-
-    <div class="container-xl pt-4">
-
-        <div class="row Management container-fluid ">
+    <div class="container-xl">
+        <div class="row Management container-fluid pt-4">
             {{-- <h4 class="text-white bg-info">CLIENT MANAGEMENT</h4> --}}
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row">
-                    {{-- butons --}}
-                    <div class="col-12 col-md-2 col-lg-2 mb-2 Buscador">
+                    <div class="col-4 col-md-3  col-lg-3">
+                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
+                            value="{{ $order_number}}">
+                    </div>
+
+                    <div class="col-4 col-md-3  col-lg-3">
+                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
+                            value="{{$quantiy_ordered}}" min="0">
+                    </div>
+
+                    <div class="col-4 col-md-2  col-lg-2 mb-2">
+                        <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
+                            value="{{$year_id}}" min="2000" max="2022">
+                    </div>
+
+                    <div class="col-12 col-md-2 col-lg-2 mb-2">
+                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
+                    </div>
+
+                    <div class="col-12 col-md-2 col-lg-2 mb-2 d-flex justify-content-end">
                         <a href="{{route('sales.create')}}"
-                            class="btn btn-success bg-gradient button_regist principal_buttons "><span
-                                class="material-icons-outlined icons_proyect pe-">
+                            class="btn btn-success bg-gradient button_regist principal_buttons"><span
+                                class="material-icons-outlined icons_proyect">
                                 add_circle
                             </span>
                             <span> New Regist</span>
                         </a>
                     </div>
-
-                    <div class="col-12 col-md-2 col-lg-2 mb-2 d-flex justify-content-end" >
-                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
-                    </div>
-
-                    <div class="col-4 col-md-3  col-lg-3  ">
-                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
-                            value="{{ $order_number}}">
-                    </div>
-
-                    <div class="col-4 col-md-3  col-lg-3 ">
-                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
-                            value="{{$quantiy_ordered}}" min="0">
-                    </div>
-
-                    <div class="col-4 col-md-2  col-lg-2 ">
-                        <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
-                            value="{{$year_id}}" min="2000" max="2022">
-                    </div>
-
-
                 </div>
-
             </form>
         </div>
         {{-- TABLA --}}
-
         <div class="row tabla container-fluid" style="overflow-x: scroll">
             <div class="col-1x-12 ">
-                <div class="table-responsive">
+                <div class="table-responsive" style="border: 1px solid rgb(200, 200, 200);">
                     <table class="table table-striped">
-                        <thead class=" bg-dark text-white">
+                        <thead class=" bg-dark text-white" style="border: 1px solid rgb(200, 200, 200);">
                             <tr>
-
                                 <th>OPTIONS&nbsp;CLIENT</th>
                                 <th>ORDER&nbsp;NUMBER</th>
                                 <th>QUANTITY&nbsp;ORDERED</th>
                                 <th>PRICE&nbsp;EACH</th>
-                                <th>ORDER&nbsp;LINENUMBER</th>
+                                <th>ORDER&nbsp;LINE&nbsp;NUM</th>
                                 <th>SALES</th>
                                 <th>ORDER&nbsp;DATE</th>
                                 <th>STATUS</th>
@@ -158,32 +135,25 @@
                                     {{-- Optión buttons --}}
                                     <td class="sticky-left">
                                         <div>
-                                            <div>
-                                                <a href="{{route('sales.edit',$sale->id)}}" method="get"
-                                                    class="btn btn-warning btn-sm mb-1 pt-2 option_buttons ">&nbsp;<span
-                                                        class=" material-icons-outlined icons_proyect">edit</span>&nbsp;&nbsp;<span
-                                                        style="vertical-align:middle">Edit</span>
+                                            <a href="{{route('sales.edit',$sale->id)}}" method="get"
+                                                class="btn btn-warning btn-sm mb-1 pt-2 option_buttons ">&nbsp;<span
+                                                    class=" material-icons-outlined icons_proyect">edit</span>&nbsp;&nbsp;<span
+                                                    style="vertical-align:middle">Edit</span>
+                                            </a>
 
-
-                                                </a>
-
-
-                                                <form action="{{route('sales.destroy',$sale->id)}}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <div class="btn btn-sm bg-danger d-flex text-white option_buttons">
-                                                        <label for="delete"
-                                                            class="pt-1 material-icons-outlined icons_proyect">remove_circle</label>
-                                                        <input type="submit" id="delete" class='btn btn-sm text-white '
-                                                            value="Delete"
-                                                            onclick="return confirm('Are you sure, do you want delete this register?')">
-
-
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            <form action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="btn btn-sm bg-danger d-flex text-white option_buttons">
+                                                    <label for="delete"
+                                                        class="pt-1 material-icons-outlined icons_proyect">remove_circle</label>
+                                                    <input type="submit" id="delete" class='btn btn-sm text-white '
+                                                        value="Delete"
+                                                        onclick="return confirm('Are you sure, do you want delete this register?')">
+                                                </div>
+                                            </form>
+                                        </div>
                                     </td>
-
                                     <td>{{$sale->ORDERNUMBER}}</td>
                                     <td>{{$sale->QUANTITYORDERED}}</td>
                                     <td>{{$sale->PRICEEACH}}</td>
@@ -209,7 +179,6 @@
                                     <td>{{$sale->CONTACTLASTNAME}}</td>
                                     <td>{{$sale->CONTACTFIRSTNAME}}</td>
                                     <td>{{$sale->DEALSIZE}}</td>
-
                                 </tr>
                                 @endforeach
                                 @endif
