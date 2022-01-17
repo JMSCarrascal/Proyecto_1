@@ -20,38 +20,41 @@
 
         .button_regist {
             background-color: #00CC33;
-            min-width: 180px;
+            min-width: 150px;
         }
 
         .Management {
             position: sticky;
             top: 0px;
-            right: 5px;
+        
+            
         }
 
         .option_buttons {
             text-align: initial;
-            width: 75%;
-            height: 100%;
-            font-family;
+            vertical-align: middle;
+            width: 70%;
+            height: 35px;
             font-weight: 500;
+
 
 
 
         }
 
-        /* .icon {
-            align: right;
-        } */
+        .icons_proyect {
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        
 
         /* responsive */
         @media (max-width: 767px) {
             .principal_buttons {
                 width: 100%;
-                margin-right: 4px;
-                max-width: 600px;
-
             }
+            
 
 
         }
@@ -61,38 +64,44 @@
     <title>Homepage</title>
 </head>
 
-<body class="bg-secondary ">
+<body>
 
 
-    <div class="container-sm mt-5 ">
-        <h4 class="text-white">CLIENT MANAGEMENT</h4>
-        <div class="row mb-2 Management">
-
+    <div class="container-lg pt-4">
+        
+        <div class="row Management container-fluid  ">
+            {{-- <h4 class="text-white bg-info">CLIENT MANAGEMENT</h4> --}}
             <form action="{{route('sales.index')}}" method="get">
-                <div class="row">
-                    <div class="col-4 col-md-3 mb-3">
+                <div class="row conta">
+                    <div class="col-4 col-md-3  col-lg-3  mb-3">
                         <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
                             value="{{ $order_number}}">
                     </div>
 
-                    <div class="col-4 col-md-3 ">
+                    <div class="col-4 col-md-3  col-lg-3 ">
                         <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
                             value="{{$quantiy_ordered}}" min="0">
                     </div>
 
-                    <div class="col-4 col-md-2 ">
+                    <div class="col-4 col-md-2  col-lg-2 ">
                         <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
                             value="{{$year_id}}" min="2000" max="2022">
                     </div>
 
                     {{-- butons --}}
-                    <div class="col-12 col-md-1  me-3 mb-2 ">
+                    
+                    <div class="col-12 col-md-2 col-lg-2 mb-2">
+                        
                         <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
                     </div>
-                    <div class="col-12 col-md-2 ">
+                    <div class="col-12 col-md-2 col-lg-2 align-items-end mb-2">
                         <a href="{{route('sales.create')}}"
-                            class="btn btn-success bg-gradient button_regist principal_buttons">
-                       New Regist </a>
+                            class="btn btn-success bg-gradient button_regist principal_buttons "><span
+                                class="material-icons-outlined icons_proyect pe-">
+                                add_circle
+                            </span>
+                            <span> New Regist</span> 
+                        </a>
 
                     </div>
                 </div>
@@ -101,15 +110,14 @@
         </div>
         {{-- TABLA --}}
 
-        <div class="row">
-            <div class="col-1x-12" >
-                <div class="table-responsive-xl">
-                    <table class="table table-dark table-striped">
-                        <thead class="encabezado_tabla">
+        <div class="row tabla container-fluid" style="overflow-x: scroll">
+            <div class="col-1x-12 ">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class=" bg-dark text-white">
                             <tr>
 
                                 <th>OPTIONS&nbsp;CLIENT</th>
-                                <th>id</th>
                                 <th>ORDER&nbsp;NUMBER</th>
                                 <th>QUANTITY&nbsp;ORDERED</th>
                                 <th>PRICE&nbsp;EACH</th>
@@ -148,32 +156,33 @@
                                     {{-- Optión buttons --}}
                                     <td class="sticky-left">
                                         <div>
-                                            
+                                            <div>
                                                 <a href="{{route('sales.edit',$sale->id)}}" method="get"
-                                                    class="btn btn-warning btn-sm mb-1 option_buttons "><span
-                                                        class="pt-1 material-icons-outlined"
-                                                        style="font-size:20px;">edit</span>&nbsp;&nbsp;&nbsp;Edit
+                                                    class="btn btn-warning btn-sm mb-1 pt-2 option_buttons ">&nbsp;<span
+                                                        class=" material-icons-outlined icons_proyect">edit</span>&nbsp;&nbsp;<span
+                                                        style="vertical-align:middle">Edit</span>
 
 
                                                 </a>
-                                        
-                                            <form action="{{route('sales.destroy',$sale->id)}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div
-                                                    class="btn btn-sm bg-danger  bg-gradient d-flex text-white option_buttons">
-                                                    <label for="delete" class="pt-1 material-icons-outlined"
-                                                        style="font-size: 20px">delete</label>
-                                                    <input type="submit" id="delete" class='btn btn-sm text-white'
-                                                        value="Delete"
-                                                        onclick="return confirm('Are you sure, do you want delete this register?')">
+                                               
+
+                                                <form action="{{route('sales.destroy',$sale->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div
+                                                        class="btn btn-sm bg-danger d-flex text-white option_buttons">
+                                                        <label for="delete"
+                                                            class="pt-1 material-icons-outlined icons_proyect">remove_circle</label>
+                                                        <input type="submit" id="delete" class='btn btn-sm text-white '
+                                                            value="Delete"
+                                                            onclick="return confirm('Are you sure, do you want delete this register?')">
 
 
-                                                </div>
-                                            </form>
-                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                     </td>
-                                    <td>{{$sale->id}}</td>
+
                                     <td>{{$sale->ORDERNUMBER}}</td>
                                     <td>{{$sale->QUANTITYORDERED}}</td>
                                     <td>{{$sale->PRICEEACH}}</td>
@@ -207,10 +216,11 @@
                     </table>
                 </div>
             </div>
+            <div class="mt-3">
+                {{$sales->links()}}
+            </div>
         </div>
-        <div class="mt-3">
-            {{$sales->links()}}
-        </div>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
