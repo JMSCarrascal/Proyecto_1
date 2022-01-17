@@ -19,15 +19,17 @@
         }
 
         .button_regist {
-            background-color: #00CC33;
-            min-width: 150px;
+            background-color: #30a74e;
+            min-width: 140px;
+
+
         }
 
         .Management {
             position: sticky;
             top: 0px;
-        
-            
+
+
         }
 
         .option_buttons {
@@ -47,14 +49,14 @@
             font-size: 18px;
         }
 
-        
+       
 
         /* responsive */
         @media (max-width: 767px) {
             .principal_buttons {
                 width: 100%;
             }
-            
+
 
 
         }
@@ -67,13 +69,28 @@
 <body>
 
 
-    <div class="container-lg pt-4">
-        
-        <div class="row Management container-fluid  ">
+    <div class="container-xl pt-4">
+
+        <div class="row Management container-fluid ">
             {{-- <h4 class="text-white bg-info">CLIENT MANAGEMENT</h4> --}}
             <form action="{{route('sales.index')}}" method="get">
-                <div class="row conta">
-                    <div class="col-4 col-md-3  col-lg-3  mb-3">
+                <div class="row">
+                    {{-- butons --}}
+                    <div class="col-12 col-md-2 col-lg-2 mb-2 Buscador">
+                        <a href="{{route('sales.create')}}"
+                            class="btn btn-success bg-gradient button_regist principal_buttons "><span
+                                class="material-icons-outlined icons_proyect pe-">
+                                add_circle
+                            </span>
+                            <span> New Regist</span>
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-2 col-lg-2 mb-2 d-flex justify-content-end" >
+                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
+                    </div>
+
+                    <div class="col-4 col-md-3  col-lg-3  ">
                         <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
                             value="{{ $order_number}}">
                     </div>
@@ -88,22 +105,7 @@
                             value="{{$year_id}}" min="2000" max="2022">
                     </div>
 
-                    {{-- butons --}}
-                    
-                    <div class="col-12 col-md-2 col-lg-2 mb-2">
-                        
-                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
-                    </div>
-                    <div class="col-12 col-md-2 col-lg-2 align-items-end mb-2">
-                        <a href="{{route('sales.create')}}"
-                            class="btn btn-success bg-gradient button_regist principal_buttons "><span
-                                class="material-icons-outlined icons_proyect pe-">
-                                add_circle
-                            </span>
-                            <span> New Regist</span> 
-                        </a>
 
-                    </div>
                 </div>
 
             </form>
@@ -164,13 +166,12 @@
 
 
                                                 </a>
-                                               
+
 
                                                 <form action="{{route('sales.destroy',$sale->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <div
-                                                        class="btn btn-sm bg-danger d-flex text-white option_buttons">
+                                                    <div class="btn btn-sm bg-danger d-flex text-white option_buttons">
                                                         <label for="delete"
                                                             class="pt-1 material-icons-outlined icons_proyect">remove_circle</label>
                                                         <input type="submit" id="delete" class='btn btn-sm text-white '
@@ -220,7 +221,7 @@
                 {{$sales->links()}}
             </div>
         </div>
-        
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
