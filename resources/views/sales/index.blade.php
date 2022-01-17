@@ -18,9 +18,12 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        .button_regist {
-            background-color: #30a74e;
-            min-width: 140px;
+        .thead_page {
+            width: 100%;
+            margin-left: 1px;
+            background-color: rgb(39, 39, 39);
+
+
         }
 
         .Management {
@@ -28,8 +31,36 @@
             top: 0px;
         }
 
+        .thead_table {
+            background-color: rgb(155, 155, 155);
+
+        }
+
+        .button_regist {
+            background-color: #24c44c;
+            min-width: 140px;
+            font-size: 13px;
+        }
+
+        .search_button {
+            background-color: rgb(54, 90, 211);
+            font-size: 13px;
+        }
+
+        .tittle {
+            margin-left: 13px;
+            text-align: center;
+            padding-top: 10px;
+            border: 1px solid rgb(170, 170, 170);
+            sha
+        }
+
+        .form-control {
+            font-size: 13px;
+        }
+
         .option_buttons {
-            text-align: initial;
+
             vertical-align: middle;
             width: 70%;
             height: 35px;
@@ -38,7 +69,12 @@
 
         .icons_proyect {
             vertical-align: middle;
-            font-size: 18px;
+            font-size: 15px;
+        }
+
+        .table_sales {
+            font-size: 13px;
+
         }
 
         @media (max-width: 767px) {
@@ -53,31 +89,36 @@
 </head>
 
 <body>
-    <div class="container-xl">
-        <div class="row Management container-fluid pt-4">
-            {{-- <h4 class="text-white bg-info">CLIENT MANAGEMENT</h4> --}}
+    <div class="container-fluid">
+        <div class="row container-fluid">
+            <div class="row">
+                <h4 class="text-dark bg-gradient rounded tittle">CLIENT MANAGEMENT</h4>
+            </div>
+        </div>
+        <div class="row container-fluid Management ">
+
             <form action="{{route('sales.index')}}" method="get">
-                <div class="row">
-                    <div class="col-4 col-md-3  col-lg-3">
-                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
+                <div class="row bg-gradient pt-4 bg-gradient rounded thead_page">
+                    <div class="col-4 col-md-2  col-lg-2">
+                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUM"
                             value="{{ $order_number}}">
                     </div>
 
-                    <div class="col-4 col-md-3  col-lg-3">
-                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
+                    <div class="col-4 col-md-2  col-lg-2 ">
+                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTY ORDERED"
                             value="{{$quantiy_ordered}}" min="0">
                     </div>
 
                     <div class="col-4 col-md-2  col-lg-2 mb-2">
-                        <input type="number" name="year_id" class="form-control" placeholder="YEAR_ID"
+                        <input type="number" name="year_id" class="form-control " placeholder="YEAR_ID"
                             value="{{$year_id}}" min="2000" max="2022">
                     </div>
 
                     <div class="col-12 col-md-2 col-lg-2 mb-2">
-                        <input type="submit" value="Search" class="btn btn-primary bg-gradient principal_buttons ">
+                        <input type="submit" value="Search" class="btn btn-primary bg-gradient  search_button principal_buttons ">
                     </div>
 
-                    <div class="col-12 col-md-2 col-lg-2 mb-2 d-flex justify-content-end">
+                    <div class="col-12 col-md-4 col-lg-4 mb-2 d-flex justify-content-end">
                         <a href="{{route('sales.create')}}"
                             class="btn btn-success bg-gradient button_regist principal_buttons"><span
                                 class="material-icons-outlined icons_proyect">
@@ -90,13 +131,13 @@
             </form>
         </div>
         {{-- TABLA --}}
-        <div class="row tabla container-fluid" style="overflow-x: scroll">
-            <div class="col-1x-12 ">
-                <div class="table-responsive" style="border: 1px solid rgb(200, 200, 200);">
+        <div class="row tabla container-fluid table_sales " style="overflow-x: scroll;">
+            <div class="col-1x-12  ">
+                <div class="table-responsive rounded">
                     <table class="table table-striped">
-                        <thead class=" bg-dark text-white" style="border: 1px solid rgb(200, 200, 200);">
+                        <thead class=" bg-gradient thead_table ">
                             <tr>
-                                <th>OPTIONS&nbsp;CLIENT</th>
+                                <th style="font-size: 15px">OPTIONS&nbsp;CLIENT</th>
                                 <th>ORDER&nbsp;NUMBER</th>
                                 <th>QUANTITY&nbsp;ORDERED</th>
                                 <th>PRICE&nbsp;EACH</th>
@@ -137,8 +178,8 @@
                                         <div>
                                             <a href="{{route('sales.edit',$sale->id)}}" method="get"
                                                 class="btn btn-warning btn-sm mb-1 pt-2 option_buttons ">&nbsp;<span
-                                                    class=" material-icons-outlined icons_proyect">edit</span>&nbsp;&nbsp;<span
-                                                    style="vertical-align:middle">Edit</span>
+                                                    class=" material-icons-outlined icons_proyect me">edit</span>&nbsp;&nbsp;<span
+                                                    style="vertical-align:middle; margin-right:14px;">Edit</span>
                                             </a>
 
                                             <form action="{{route('sales.destroy',$sale->id)}}" method="post">
@@ -146,8 +187,9 @@
                                                 @method('DELETE')
                                                 <div class="btn btn-sm bg-danger d-flex text-white option_buttons">
                                                     <label for="delete"
-                                                        class="pt-1 material-icons-outlined icons_proyect">remove_circle</label>
-                                                    <input type="submit" id="delete" class='btn btn-sm text-white '
+                                                        class="pt-2 material-icons-outlined icons_proyect">remove_circle</label>
+                                                    <input type="submit" id="delete"
+                                                        class='btn btn-sm text-white d-flex justify-content-star '
                                                         value="Delete"
                                                         onclick="return confirm('Are you sure, do you want delete this register?')">
                                                 </div>

@@ -51,7 +51,7 @@
 
 
                                 <label for="STATUS">Shipping status</label>
-                                <input tipe="text" id="STATUS" class="form-control" list="estado" name="STATUS"
+                                <input type="text" id="STATUS" class="form-control" list="estado" name="STATUS"
                                     require="">
                                 <datalist id="estado">
                                     <option>Shipped</option>
@@ -60,6 +60,7 @@
                                     <option>Disputed</option>
                                     <option>On Hold</option>
                                     <option>Cancelled</option>
+                                    <option>Resolved</option> 
                                 </datalist>
 
                                 <label for="QTR_ID"> QTR id</label>

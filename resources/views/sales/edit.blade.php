@@ -63,6 +63,7 @@
                                     <option>Disputed</option>
                                     <option>On Hold</option>
                                     <option>Cancelled</option>
+                                    <option>Resolved</option> 
                                 </datalist>
 
                                 <label for="QTR_ID"> QTR id</label>
