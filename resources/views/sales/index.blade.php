@@ -100,17 +100,17 @@
             <form action="{{route('sales.index')}}" method="get">
                 <div class="row bg-gradient pt-4 bg-gradient rounded thead_page">
                     <div class="col-4 col-md-2  col-lg-2">
-                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUM"
+                        <input type="number" name="order_number" class="form-control" placeholder="ORDER NUMBER"
                             value="{{ $order_number}}">
                     </div>
 
                     <div class="col-4 col-md-2  col-lg-2 ">
-                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTY ORDERED"
+                        <input type="number" name="quantiy_ordered" class="form-control" placeholder="QUANTITY ORDERED"
                             value="{{$quantiy_ordered}}" min="0">
                     </div>
 
                     <div class="col-4 col-md-2  col-lg-2 mb-2">
-                        <input type="number" name="year_id" class="form-control " placeholder="YEAR_ID"
+                        <input type="number" name="year_id" class="form-control " placeholder="YEAR ID"
                             value="{{$year_id}}" min="2000" max="2022">
                     </div>
 
@@ -118,7 +118,7 @@
                         <input type="submit" value="Search" class="btn btn-primary bg-gradient  search_button principal_buttons ">
                     </div>
 
-                    <div class="col-12 col-md-4 col-lg-4 mb-2 d-flex justify-content-end">
+                    <div class="col-12 col-md-4 col-lg-4 mb-3 d-flex justify-content-end">
                         <a href="{{route('sales.create')}}"
                             class="btn btn-success bg-gradient button_regist principal_buttons"><span
                                 class="material-icons-outlined icons_proyect">
