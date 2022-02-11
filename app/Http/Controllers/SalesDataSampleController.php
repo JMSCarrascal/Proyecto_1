@@ -26,7 +26,7 @@ class SalesDataSampleController extends Controller
         if ($request->has('order_number') && $order_number != null) {
             $query = $query->where('ORDERNUMBER', $order_number);
         }
-
+ 
 
         $quantiy_ordered = $request->get('quantiy_ordered');
         if ($request->has('quantiy_ordered') && $quantiy_ordered != null) {

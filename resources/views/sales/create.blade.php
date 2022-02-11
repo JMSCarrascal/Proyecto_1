@@ -389,12 +389,12 @@
 
                                 <label for="DEALSIZE">Deal size</label> 
                                  <input  tipe="text" id="DEALSIZE"class="form-control" list="deal_size" name="DEALSIZE" require="">
-                                      <datalist id="deal_size">
-                                        <option>Small</option>
-                                        <option>Medium</option>
-                                        <option>Large</option>
+                                     <datalist id="deal_size">
+                                      <option>Small</option>
+                                       <option>Medium</option>
+                                       <option>Large</option>
                                         
-                                      </datalist>
+                                  </datalist>
                             </div>
                         </div>
                     </div>
@@ -411,7 +411,7 @@
                     
                     </div>                 
                 </form>
-            </div>
+            </di       
 
 
 

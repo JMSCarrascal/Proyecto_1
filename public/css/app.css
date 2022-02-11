@@ -1,0 +1,14 @@
+.button_regist{
+    background-color: rgb(16, 185, 39);
+    min-width: 180px;
+}
+@media (max-width: 767px) {
+    .principal_buttons {
+        width: 100%;
+        margin-right: 4px;
+        max-width: 600px;
+
+    }}
+
+    
+
