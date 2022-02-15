@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\Salesimport;
 use Illuminate\Http\Request;
 use App\Models\SalesDataSample;
+use Illuminate\Database\Eloquent\HigherOrderBuilderProxy;
 use Illuminate\Http\Response;
 
 class SalesDataSampleController extends Controller
@@ -38,7 +39,9 @@ class SalesDataSampleController extends Controller
             $query = $query->where('YEAR_ID', $year_id);
         }
 
-        $sales = $query->paginate(10);
+        $sales = $query->orderBy('id','DESC')->paginate(10);
+        
+
 
         return view('sales.index', compact('sales', 'order_number', 'quantiy_ordered', 'year_id'));
     }
@@ -62,14 +65,13 @@ class SalesDataSampleController extends Controller
         return view('sales.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, SalesDataSample $sales)
-    {
+    
+    public function store(Request $request)
+    {   
+
+        
+        $sales = new SalesDataSample();
+
         $sales->ORDERNUMBER=$request->input('ORDERNUMBER');
         $sales->QUANTITYORDERED=$request->input('QUANTITYORDERED');
         $sales->PRICEEACH=$request->input('PRICEEACH');
@@ -97,7 +99,8 @@ class SalesDataSampleController extends Controller
         $sales->DEALSIZE=$request->input('DEALSIZE');
         $sales->save();
         
-        return redirect()->route('sales.index');
+        return $sales;
+        
         
     }
 
@@ -136,7 +139,7 @@ class SalesDataSampleController extends Controller
         
         $sale->fill($request->all());
         $sale->save();
-        return redirect()->route('sales.index');
+        return $sale;
     }
 
     /**
