@@ -3,6 +3,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\SalesDataSampleController;
 
 
+
+Route::resource('/sales', SalesDataSampleController::class);
 // Route::get('/sales', [SalesDataSampleController::class, 'index'])->name('sales.index');
 //  Route::post('/sales', [SalesDataSampleController::class, 'store'])->name('sales.store');
 // Route::post('/sales', function(Request $request){
@@ -10,14 +12,8 @@ use App\Http\Controllers\SalesDataSampleController;
 // })->name('sales.store');
 // Route::delete('/sales', [SalesDataSampleController::class, 'destroy'])->name('sales.destroy');
 // Route::put('/sales', [SalesDataSampleController::class, 'update'])->name('sales.update');
-Route::resource('/sales', SalesDataSampleController::class);
 
 
 
 
 
-Route::get('/test', function(){
-    $data = ['nombre' => 'juan', 'edad' => 10];
-    $json = json_encode($data);
-    return $json;
-});
