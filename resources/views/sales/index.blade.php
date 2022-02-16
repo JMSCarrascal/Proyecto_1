@@ -142,7 +142,7 @@
         {{-- created modal --}}
         <div class="modal fade" id="modal_created" tabindex="-1" aria-labelledby="modal_createdLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Add New Sale</h5>
@@ -153,38 +153,45 @@
                             @csrf
                             <div class="row d-flex justify-content-center text-dark">
                                 <div class="col-sm">
-                                    <div class="form-group my-2">
+                                    <div class="row d-flex form-group my-2">
+
+                                        <div class="col-3">
                                         <label for="ORDERNUMBER">Order number</label>
                                         <input type="number" id="ORDERNUMBER" class="form-control" name="ORDERNUMBER"
                                             min="1" required="">
+                                        </div>
 
-
-
+                                        <div class="col-3">
                                         <label for="QUANTITYORDERED">Quantity ordered</label>
                                         <input type="number" id="QUANTITYORDERED" class="form-control"
                                             name="QUANTITYORDERED" min="1" required="">
+                                        </div>
 
-
+                                        <div class="col-3">
                                         <label for="PRICEEACH">Price each</label>
                                         <input type="text" id="PRICEEACH" class="form-control" name="PRICEEACH" required
                                             maxlength="7">
+                                        </div>
 
-
+                                        <div class="col-3">
                                         <label for="ORDERLINENUMBER">Order line number</label>
                                         <input type="number" id="ORDERLINENUMBER" class="form-control"
                                             name="ORDERLINENUMBER" min="1" required="">
+                                        </div>
 
-
+                                        <div class="col-3">
                                         <label for="SALES">Sales</label>
                                         <input type="text" id="SALES" name="SALES" class="form-control" min="1"
                                             required="">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="ORDERDATE">Order date</label>
                                         <input type="datetime-local" id="ORDERDATE" name="ORDERDATE"
-                                            class="form-control" required="" placeholder="ORDER DATE">
-
-
-                                        <div class="mb-3">
+                                          class="form-control" required="" placeholder="ORDER DATE">
+                                        </div>
+                                            
+                                        <div class="col-3" class="col-3">
                                             <label for="STATUS">Shipping status</label>
                                             <input type="text" id="STATUS" class="form-control" list="estado"
                                                 name="STATUS" require="">
@@ -198,17 +205,25 @@
                                                 <option>Resolved</option>
                                             </datalist>
                                         </div>
+
+                                        <div class="col-3">
                                         <label for="QTR_ID"> QTR id</label>
                                         <input type="number" id="QTR_ID" class="form-control" name="QTR_ID" required="">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="MONTH_ID"> Mont id</label>
                                         <input type="number" id="MONTH_ID" class="form-control" name="MONTH_ID" min="1"
                                             max="12" required="" placeholder="insert a value betwent 1-12.">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="YEAR_ID"> Year id</label>
                                         <input type="number" id="YEAR_ID" class="form-control" name="YEAR_ID" max="2021"
                                             min="2000" required="">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="PRODUCTLINE">Product line</label>
                                         <input tipe="text" id="PRODUCTLINE" class="form-control" list="product_line"
                                             name="PRODUCTLINE" require="">
@@ -218,42 +233,61 @@
                                             <option>Planes</option>
                                             <option>Ships</option>
                                         </datalist>
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="MSRP"> MSRP</label>
                                         <input type="number" id="MSRP" class="form-control" name="MSRP" required="">
+                                        </div>
 
+                                        <div class="col-4">
                                         <label for="PRODUCTCODE"> Product code</label>
                                         <input type="text" id="PRODUCTCODE" class="form-control" name="PRODUCTCODE"
                                             required="">
+                                        </div>
 
+                                        <div class="col-4">
                                         <label for="CUSTOMERNAME"> Customer Name</label>
                                         <input type="text" id="CUSTOMERNAME" class="form-control" name="CUSTOMERNAME"
                                             required maxlength="150">
+                                        </div>
 
+                                        <div class="col-4">
                                         <label for="PHONE"> Customer phone number</label>
                                         <input type="tel" id="PHONE" class="form-control" name="PHONE" required
                                             maxlength="15">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="ADDRESSLINE1"> Adress 1</label>
                                         <input type="text" id="ADDRESSLINE1" class="form-control" name="ADDRESSLINE1"
                                             required="">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="ADDRESSLINE2"> Adress 2</label>
                                         <input type="text" id="ADDRESSLINE2" class="form-control" name="ADDRESSLINE2">
+                                        </div>
 
+                                        <div class="col-3">
                                         <label for="CITY"> City</label>
                                         <input type="text" id="CITY" class="form-control" name="CITY" required
                                             maxlength="25">
-
+                                        </div>
+                                            
+                                        <div class="col-3">
                                         <label for="STATE"> State</label>
                                         <input type="text" id="STATE" class="form-control" name="STATE" maxlength="25">
+                                        </div>
 
+                                        <div class="col-4">
                                         <label for="POSTALCODE"> Postalcode</label>
                                         <input type="number" id="POSTALCODE" class="form-control" name="POSTALCODE"
                                             required="">
+                                        </div>
 
 
-                                        <div>
+                                        <div class="col-4">
                                             <label for="COUNTRY"> Country</label>
                                             <input type="text" id="COUNTRY" class="form-control" list="country"
                                                 name="COUNTRY" required="">
@@ -495,18 +529,26 @@
                                             </datalist>
                                         </div>
 
+                                        <div class="col-4">
                                         <label for="TERRITORY"> Territory</label>
                                         <input type="text" id="TERRITORY" class="form-control" name="TERRITORY"
                                             required="">
+                                        </div>
 
+                                        <div class="col-6">
                                         <label for="CONTACTLASTNAME"> Contac lastname</label>
                                         <input type="text" id="CONTACTLASTNAME" class="form-control"
                                             name="CONTACTLASTNAME" required="">
-
+                                        </div>
+                                    
+                                        <div class="col-6">
                                         <label for="CONTACTFIRSTNAME"> Contac firtsname</label>
                                         <input type="text" id="CONTACTFIRSTNAME" class="form-control"
                                             name="CONTACTFIRSTNAME" required="">
+                                        </div>
+                                        
 
+                                        <div class=" col-4 ">
                                         <label for="DEALSIZE">Deal size</label>
                                         <input tipe="text" id="DEALSIZE" class="form-control" list="deal_size"
                                             name="DEALSIZE" require="">
@@ -515,6 +557,7 @@
                                             <option>Medium</option>
                                             <option>Large</option>
                                         </datalist>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -576,13 +619,8 @@
                                     @foreach ($sales as $sale )
                                     <tr>
                                         {{-- Optión buttons --}}
-                                        <td class="sticky-left">
+                                        <td>
                                             <div>
-                                                {{-- <a href="{{route('sales.edit',$sale->id)}}" method="get"
-                                                class="btn btn-warning btn-sm mb-1 pt-2 option_buttons ">&nbsp;<span
-                                                    class=" material-icons-outlined icons_proyect me">edit</span>&nbsp;&nbsp;<span
-                                                    style="vertical-align:middle; margin-right:14px;">Edit</span>
-                                                </a> --}}
                                                 <button type="button"
                                                     class="btn btn-warning btn-sm mb-1 pt-2 option_buttons"
                                                     data-bs-toggle="modal"
@@ -634,17 +672,15 @@
                                         <td>
                                             {{-- EDIT MODAL --}}
                                             <div class="modal fade modal_edit" id="modal_edit{{$sale->id}}" tabindex="-1"
-                                                aria-labelledby="modal_update_sale_Label" aria-hidden="true">
+                                                aria-labelledby="modal_editLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="modal_update_sale_Label">Modal
-                                                                title</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            <h5 class="modal-title" id="modal_editLabel">Edit Sale</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="saleseditform" action="{{route('sales.update',$sale->id)}}">
+                                                            <form class="saleseditform" action="{{route('sales.update',$sale->id)}}" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div
                                                                     class="row row d-flex justify-content-center text-dark">
@@ -1148,7 +1184,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -1157,7 +1192,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
+    
     <script>
         $(document).ready(function () {
 
@@ -1177,52 +1212,39 @@
                     url: $(this).attr('action'),
                     data: formData,
                     success: function (data) {
-                        debugger
                         $('#salesnewform')[0].reset();
                         $('#modal_created').modal('hide');
                         $("#table_refresh").load(" #table_refresh");
-               
                     },
                     error: function (data) {
                         console.log('error')
                     }
                 })
 
-            
-
-
             });
 
-            $('#saleseditform').submit(function (event) {
+            $('.saleseditform').submit(function (event) {
                 event.preventDefault();
-
+                
                 const formData = $(this).serializeArray()
                     .reduce(function (a, z) {
                         a[z.name] = z.value;
                         return a;
                     }, {});
-                // console.log(formData);
-
-
                 $.ajax({
                     type: 'PUT',
                     url: $(this).attr('action'),
                     data: formData,
                     success: function (data) {
-                        debugger
-                        
                         $('.modal_edit').modal('hide');
-                        $("#table_refresh").load(" #table_refresh");
-               
+                        window.location.reload();
                     },
                     error: function (data) {
                         console.log('error')
                     }
-                })
-            
-          });
-    });
-
+                }) 
+            });
+        });
     </script>
 </body>
 
